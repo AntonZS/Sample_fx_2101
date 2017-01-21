@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="350.0" prefWidth="300.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller">
+  <children>
+    <AnchorPane fx:id="AP1" minHeight="320.0" prefHeight="320.0" prefWidth="300.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+      <children>
+        <Button fx:id="b1" layoutX="99.0" layoutY="92.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="102.0" text="Показать цвет" textAlignment="CENTER" textFill="BLACK" textOverrun="CLIP" wrapText="false">
+          <font>
+            <Font name="ACaslonPro-Regular" size="12.0" />
+          </font>
+        </Button>
+        <Group id="g1" layoutX="58.0" layoutY="186.0" scaleX="1.0" scaleY="1.0">
+          <children>
+            <RadioButton fx:id="rbD50" layoutX="0.0" layoutY="0.0" mnemonicParsing="false" text="D50" />
+            <RadioButton fx:id="rbD65" layoutX="143.0" layoutY="0.0" mnemonicParsing="false" text="D65" />
+          </children>
+        </Group>
+        <Label fx:id="l1" layoutX="20.0" layoutY="49.0" prefHeight="25.0" prefWidth="10.0" text="L" />
+        <TextField id="tfL" fx:id="tfR" layoutX="30.0" layoutY="42.0" prefHeight="39.0" prefWidth="55.0" text="" />
+        <TextField id="tfa" fx:id="tfG" layoutX="30.0" layoutY="81.0" prefHeight="39.0" prefWidth="55.0" text="" />
+        <TextField id="tfb" fx:id="tfB" layoutX="30.0" layoutY="120.0" prefHeight="39.0" prefWidth="55.0" text="" />
+        <Region id="reg1" fx:id="reg" layoutX="0.0" layoutY="223.0" prefHeight="127.0" prefWidth="300.0" />
+        <Label id="l1" layoutX="20.0" layoutY="88.0" prefHeight="25.0" prefWidth="10.0" text="a" />
+        <Label id="l1" layoutX="20.0" layoutY="127.0" prefHeight="25.0" prefWidth="10.0" text="b" />
+        <Label id="l1" layoutX="205.0" layoutY="49.0" prefHeight="25.0" prefWidth="10.0" text="H" />
+        <TextField id="tfH" layoutX="215.0" layoutY="42.0" prefHeight="39.0" prefWidth="55.0" text="" />
+        <TextField id="tfS" layoutX="215.0" layoutY="81.0" prefHeight="39.0" prefWidth="55.0" text="" />
+        <TextField id="tfB" layoutX="215.0" layoutY="120.0" prefHeight="39.0" prefWidth="55.0" text="" />
+        <Label id="l1" layoutX="205.0" layoutY="88.0" prefHeight="25.0" prefWidth="10.0" text="S" />
+        <Label id="l1" layoutX="205.0" layoutY="127.0" prefHeight="25.0" prefWidth="10.0" text="B" />
+        <Button id="b2" layoutX="111.0" layoutY="46.0" mnemonicParsing="false" prefWidth="79.0" text="CONVERT" textAlignment="CENTER" />
+      </children>
+    </AnchorPane>
+  </children>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+</GridPane>
