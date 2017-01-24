@@ -14,6 +14,7 @@ public class Main extends Application {
         primaryStage.setTitle("Lab-HSB Convert");
         primaryStage.setScene(new Scene(root, primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.show();
+        primaryStage.setResizable(false);
     }
 
 
