@@ -11,9 +11,10 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Lab-HSB Convert");
+        primaryStage.setTitle("Color Convert");
         primaryStage.setScene(new Scene(root, primaryStage.getWidth(), primaryStage.getHeight()));
         primaryStage.show();
+        primaryStage.setResizable(false);
     }
 
 

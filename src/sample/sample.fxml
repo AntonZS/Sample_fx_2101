@@ -3,41 +3,66 @@
 <?import java.lang.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?scenebuilder-background-color 0x9f9f9fff?>
 
-<AnchorPane fx:id="AP1" disable="false" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" minWidth="-1.0"
+<AnchorPane fx:id="AP1" disable="false" maxHeight="350.0" maxWidth="300.0" minHeight="350.0" minWidth="300.0"
             prefHeight="350.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1"
             xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller">
   <children>
-    <Group id="g1" layoutX="58.0" layoutY="186.0" scaleX="1.0" scaleY="1.0">
+    <GridPane layoutX="0.0" layoutY="1.0" prefHeight="264.0" prefWidth="300.0">
       <children>
-        <RadioButton fx:id="rbD50" layoutX="0.0" layoutY="0.0" mnemonicParsing="false" text="D50"/>
-        <RadioButton fx:id="rbD65" layoutX="143.0" layoutY="0.0" mnemonicParsing="false" text="D65"/>
+        <Button fx:id="b2" mnemonicParsing="false" prefHeight="39.0" prefWidth="75.0" text="CIELab"
+                textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="tfL" prefHeight="39.0" prefWidth="55.0" text="" GridPane.columnIndex="1"
+                   GridPane.rowIndex="0"/>
+        <TextField fx:id="tfa" prefHeight="39.0" prefWidth="55.0" text="" GridPane.columnIndex="2"
+                   GridPane.rowIndex="0"/>
+        <TextField fx:id="tfb" prefHeight="39.0" prefWidth="55.0" text="" GridPane.columnIndex="3"
+                   GridPane.rowIndex="0"/>
+        <Button fx:id="b1" mnemonicParsing="false" prefHeight="39.0" prefWidth="75.0" text="RGB" textAlignment="CENTER"
+                GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextField fx:id="tfRGB_R" prefHeight="39.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <TextField fx:id="tfRGB_G" prefHeight="39.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+        <TextField fx:id="tfRGB_B" prefHeight="39.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+        <Button id="" mnemonicParsing="false" prefHeight="39.0" prefWidth="75.0" text="HSB" textAlignment="CENTER"
+                GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <TextField fx:id="tfH" prefHeight="39.0" prefWidth="55.0" text="" GridPane.columnIndex="1"
+                   GridPane.rowIndex="3"/>
+        <TextField fx:id="tfS" prefHeight="39.0" prefWidth="55.0" text="" GridPane.columnIndex="2"
+                   GridPane.rowIndex="3"/>
+        <TextField fx:id="tfB" prefHeight="39.0" prefWidth="55.0" text="" GridPane.columnIndex="3"
+                   GridPane.rowIndex="3"/>
+        <TextField fx:id="tfXYZ_X" prefHeight="39.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <TextField fx:id="tfXYZ_Y" prefHeight="39.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+        <TextField fx:id="tfXYZ_Z" prefHeight="39.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+        <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="75.0" text="XYZ" GridPane.columnIndex="0"
+                GridPane.rowIndex="1"/>
       </children>
-    </Group>
-    <Label fx:id="l1" layoutX="20.0" layoutY="49.0" prefHeight="25.0" prefWidth="10.0" text="L"/>
-    <TextField fx:id="tfL" layoutX="30.0" layoutY="42.0" prefHeight="39.0" prefWidth="55.0" text=""/>
-    <TextField fx:id="tfa" layoutX="30.0" layoutY="81.0" prefHeight="39.0" prefWidth="55.0" text=""/>
-    <TextField fx:id="tfb" layoutX="30.0" layoutY="120.0" prefHeight="39.0" prefWidth="55.0" text=""/>
-    <Label id="l1" layoutX="20.0" layoutY="88.0" prefHeight="25.0" prefWidth="10.0" text="a"/>
-    <Label id="l1" layoutX="20.0" layoutY="127.0" prefHeight="25.0" prefWidth="10.0" text="b"/>
-    <Label id="l1" layoutX="205.0" layoutY="49.0" prefHeight="25.0" prefWidth="10.0" text="H"/>
-    <TextField fx:id="tfH" layoutX="215.0" layoutY="42.0" prefHeight="39.0" prefWidth="55.0" text=""/>
-    <TextField fx:id="tfS" layoutX="215.0" layoutY="81.0" prefHeight="39.0" prefWidth="55.0" text=""/>
-    <TextField fx:id="tfB" layoutX="215.0" layoutY="120.0" prefHeight="39.0" prefWidth="55.0" text=""/>
-    <Label id="l1" layoutX="205.0" layoutY="88.0" prefHeight="25.0" prefWidth="10.0" text="S"/>
-    <Label id="l1" layoutX="205.0" layoutY="127.0" prefHeight="25.0" prefWidth="10.0" text="B"/>
-    <Button fx:id="b2" layoutX="111.0" layoutY="90.0" mnemonicParsing="false" prefWidth="79.0" text="CONVERT"
-            textAlignment="CENTER"/>
-    <AnchorPane fx:id="ap2" layoutX="0.0" layoutY="212.0" prefHeight="138.00009999999747" prefWidth="300.0">
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES"/>
+      </rowConstraints>
+    </GridPane>
+    <AnchorPane fx:id="ap2" layoutX="-1.0" layoutY="265.0" prefHeight="87.0" prefWidth="300.0">
       <children>
-        <Label fx:id="lout1" layoutX="30.0" layoutY="43.0" prefHeight="39.0" prefWidth="240.0" text=""
-               textAlignment="CENTER"/>
+        <Label fx:id="lout1" contentDisplay="CENTER" layoutX="15.0" layoutY="16.0" prefHeight="55.0" prefWidth="272.0"
+               text="" textAlignment="CENTER">
+          <font>
+            <Font name="Arial Bold" size="16.0"/>
+          </font>
+        </Label>
       </children>
     </AnchorPane>
-    <Label layoutX="270.0" layoutY="54.0" text="grad"/>
-    <Label layoutX="269.0" layoutY="93.0" text="\%"/>
-    <Label layoutX="270.0" layoutY="134.0" prefWidth="13.0" text="\%"/>
   </children>
 </AnchorPane>
