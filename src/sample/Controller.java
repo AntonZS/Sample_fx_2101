@@ -1,8 +1,6 @@
 package sample;
 
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -20,29 +18,34 @@ import javafx.scene.paint.Color;
 public class Controller {
 
     @FXML
-    private Button b1;
+    private Button btnLAB,
+                    btnXYZ,
+                    btnRGB,
+                    btnHSB;
+
     @FXML
-    private Button b2;
+    private AnchorPane ap2,
+                          AP1;
+
     @FXML
-    private RadioButton rbD50;
+    TextField tfL,
+            tfa,
+            tfb;
+
     @FXML
-    private RadioButton rbD65;
+    TextField tfH,
+            tfS,
+            tfB;
     @FXML
-    private AnchorPane ap2;
+    TextField tfXYZ_X,
+            tfXYZ_Y,
+            tfXYZ_Z;
+
     @FXML
-    private AnchorPane AP1;
-    @FXML
-    TextField tfL;
-    @FXML
-    TextField tfa;
-    @FXML
-    TextField tfb;
-    @FXML
-    TextField tfH;
-    @FXML
-    TextField tfS;
-    @FXML
-    TextField tfB;
+    TextField tfRGB_R,
+            tfRGB_G,
+            tfRGB_B;
+
     @FXML
     Label lout1;
 
@@ -50,11 +53,10 @@ public class Controller {
     private static String Dxx = "D65";
     Lab_SB space1 = new Lab_SB(Dxx);
 
-    final ToggleGroup g1 = new ToggleGroup();
 
     @FXML
     public void initialize(){
-        b2.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        btnLAB.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 if (tfL.getText() != null &&
@@ -87,31 +89,7 @@ public class Controller {
                 }
             }
         });
-        rbD50.setToggleGroup(g1);
-        rbD65.setToggleGroup(g1);
-        rbD65.setSelected(true);
-
-
-       g1.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-
-           @Override
-           public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-
-               if (g1.getSelectedToggle() != null) {
-                   if(rbD50.isSelected()){
-                       Dxx = rbD50.getText();}
-                   else if (rbD65.isSelected()){
-                       Dxx = rbD65.getText();}
-               }
-               Lab_SB space1 = new Lab_SB(Dxx);
-           }
-       });
-
-
     }
-
-
-
 
 }
 
