@@ -44,7 +44,7 @@
         <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
       </rowConstraints>
     </GridPane>
-    <AnchorPane fx:id="ap2" layoutX="-1.0" layoutY="265.0" prefHeight="87.0" prefWidth="300.0">
+    <AnchorPane fx:id="ap2" layoutX="-7.0" layoutY="265.0" prefHeight="87.0" prefWidth="314.0">
       <children>
         <Label fx:id="lout1" contentDisplay="CENTER" layoutX="15.0" layoutY="16.0" prefHeight="55.0" prefWidth="272.0" text="" textAlignment="CENTER">
           <font>

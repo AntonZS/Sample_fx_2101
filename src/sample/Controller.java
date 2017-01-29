@@ -95,12 +95,30 @@ public class Controller {
         tfRGB_R.setText(String.valueOf(RGB[0]));
         tfRGB_G.setText(String.valueOf(RGB[1]));
         tfRGB_B.setText(String.valueOf(RGB[2]));
+        //set color from RGB to ap2
+        lout1.setText("");
+        ap2.setBackground(new Background(new BackgroundFill(Color.rgb(RGB[0], RGB[1], RGB[2]), CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
     double[] XYZ = new double[3];
     int[] HSB = new int[3];
     int[] RGB = new int[3];
-
+    private void not_correct_color(){
+        lout1.setText("этот цвет не кодируется в sRGB и HSB");
+        ap2.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
+        tfH.clear();
+        tfS.clear();
+        tfB.clear();
+        tfRGB_R.clear();
+        tfRGB_G.clear();
+        tfRGB_B.clear();
+        tfXYZ_X.clear();
+        tfXYZ_Y.clear();
+        tfXYZ_Z.clear();
+        tfL.clear();
+        tfa.clear();
+        tfb.clear();
+    }
 
     @FXML
     public void initialize(){
@@ -118,20 +136,13 @@ public class Controller {
 
                     RGB = space1.LABtoRGB(LAB);
                     if (RGB[0] < 255 && RGB[1] < 255 && RGB[2] < 255 && RGB[0] > 0 && RGB[1] > 0 && RGB[2] > 0) {
-                        lout1.setText("");
-
-                        ap2.setBackground(new Background(new BackgroundFill(Color.rgb(RGB[0], RGB[1], RGB[2]), CornerRadii.EMPTY, Insets.EMPTY)));
 
                         setRGB(space1.LABtoRGB(LAB));
                         setXYZ(space1.LABtoXYZ(LAB));
                         setHSB(space1.LABtoHSB(LAB));
 
                     } else {
-                        lout1.setText("этот цвет не кодируется в sRGB и HSB");
-                        ap2.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
-                        tfH.clear();
-                        tfS.clear();
-                        tfB.clear();
+                        not_correct_color();
                     }
                 }
             }
