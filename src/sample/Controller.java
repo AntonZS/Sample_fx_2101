@@ -25,7 +25,8 @@ public class Controller {
     private Button b2;
     @FXML
     private RadioButton rbD50;
-
+    @FXML
+    private RadioButton rbD65;
     @FXML
     private AnchorPane ap2;
     @FXML
@@ -44,28 +45,16 @@ public class Controller {
     TextField tfB;
     @FXML
     Label lout1;
-    @FXML
-    TextField tfRGB_R;
-    @FXML
-    TextField tfRGB_G;
-    @FXML
-    TextField tfRGB_B;
-    @FXML
-    TextField tfXYZ_X;
-    @FXML
-    TextField tfXYZ_Y;
-    @FXML
-    TextField tfXYZ_Z;
+
 
     private static String Dxx = "D65";
     Lab_SB space1 = new Lab_SB(Dxx);
 
+    final ToggleGroup g1 = new ToggleGroup();
 
     @FXML
     public void initialize(){
         b2.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-
-
             @Override
             public void handle(MouseEvent mouseEvent) {
                 if (tfL.getText() != null &&
@@ -82,49 +71,42 @@ public class Controller {
                     double[] Lab = {L, a, b};
                     int[] HSB = space1.LABtoHSB(Lab);
                     int[] RGB = space1.LABtoRGB(Lab);
-                    double[] XYZ = space1.LABtoXYZ(Lab);
                     if (RGB[0] < 255 && RGB[1] < 255 && RGB[2] < 255) {
                         lout1.setText("");
                         ap2.setBackground(new Background(new BackgroundFill(Color.rgb(RGB[0], RGB[1], RGB[2]), CornerRadii.EMPTY, Insets.EMPTY)));
-
-                        setHSB(HSB);
-
-                        setRGB(RGB);
-
-                        setRGB(RGB);
-
-                        tfXYZ_X.setText(String.valueOf(XYZ[0]));
-                        tfXYZ_Y.setText(String.valueOf(XYZ[1]));
-                        tfXYZ_Z.setText(String.valueOf(XYZ[2]));
-
+                        tfH.setText(String.valueOf(HSB[0]));
+                        tfS.setText(String.valueOf(HSB[1]));
+                        tfB.setText(String.valueOf(HSB[2]));
                     } else {
                         lout1.setText("этот цвет не кодируется в sRGB и HSB");
                         ap2.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
                         tfH.clear();
                         tfS.clear();
                         tfB.clear();
-                        tfRGB_R.clear();
-                        tfRGB_G.clear();
-                        tfRGB_B.clear();
-                        tfXYZ_X.clear();
-                        tfXYZ_Y.clear();
-                        tfXYZ_Z.clear();
                     }
                 }
             }
-
-            public void setHSB(int[] HSB) {
-                tfH.setText(String.valueOf(HSB[0]));
-                tfS.setText(String.valueOf(HSB[1]));
-                tfB.setText(String.valueOf(HSB[2]));
-            }
-
-            public void setRGB(int[] RGB) {
-                tfRGB_R.setText(String.valueOf(RGB[0]));
-                tfRGB_G.setText(String.valueOf(RGB[1]));
-                tfRGB_B.setText(String.valueOf(RGB[2]));
-            }
         });
+        rbD50.setToggleGroup(g1);
+        rbD65.setToggleGroup(g1);
+        rbD65.setSelected(true);
+
+
+       g1.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
+           @Override
+           public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+
+               if (g1.getSelectedToggle() != null) {
+                   if(rbD50.isSelected()){
+                       Dxx = rbD50.getText();}
+                   else if (rbD65.isSelected()){
+                       Dxx = rbD65.getText();}
+               }
+               Lab_SB space1 = new Lab_SB(Dxx);
+           }
+       });
+
 
     }
 
